@@ -1,6 +1,6 @@
-# Docker Craft CMS
+# Docker CraftCMS
 
-A Docker stack for installing Craft CMS locally.
+A Docker stack [CraftCMS](https://craftcms.com/).
 
 ## Setup
 
