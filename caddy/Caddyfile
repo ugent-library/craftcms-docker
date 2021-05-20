@@ -1,7 +1,5 @@
-http://localhost:80
-
-root * /var/www/web
-
-php_fastcgi craftcms:9000
-
-file_server
+:80 {
+  root * /var/www/web
+  php_fastcgi craftcms:9000
+  file_server
+}

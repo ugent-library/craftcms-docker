@@ -5,12 +5,12 @@ services:
         container_name: caddy
         image: caddy
         restart: unless-stopped
-        user: 1000:1000
         networks:
             - craftcms
         volumes:
-            - ./app:/var/www
-            - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+            - $PWD/app:/var/www
+            - $PWD/caddy/Caddyfile:/etc/caddy/Caddyfile
+            - caddy_data:/data
         ports:
             - 8080:80
 
@@ -26,8 +26,6 @@ services:
             - ./app:/var/www
         ports:
             - 9000:9000
-        depends_on: 
-            - composer
 
     postgres:
         container_name: postgres
@@ -45,10 +43,14 @@ services:
           - db01:/var/lib/postgresql/data
 
 volumes:
-  db01:
-    driver: local
+    db01:
+        driver: local
+    caddy_data:
+        driver: local
+    caddy_config:
+        driver: local
 
 networks:
-  craftcms:
-    name: craftcms
+    craftcms:
+        name: craftcms
 
