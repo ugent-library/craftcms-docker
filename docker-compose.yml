@@ -13,6 +13,18 @@ services:
             - caddy_data:/data
         ports:
             - 8080:80
+        # example traefik config:
+        # labels:
+        #   - "traefik.enable=true"
+        #   - "traefik.http.routers.test-bkt-http.entrypoints=web"
+        #   - "traefik.http.routers.test-bkt-http.rule=Host(`test.boekentoren.ugent.be`) && PathPrefix(`/`)"
+        #   - "traefik.http.routers.test-bkt-http.middlewares=test-bkt-https"
+        #   - "traefik.http.middlewares.test-bkt-https.redirectscheme.scheme=https"
+        #   - "traefik.http.routers.test-bkt.entrypoints=websecure"
+        #   - "traefik.http.routers.test-bkt.rule=Host(`test.boekentoren.ugent.be`) && PathPrefix(`/`)"
+        #   - "traefik.http.routers.test-bkt.tls=true"
+        #   - "traefik.http.routers.test-bkt.tls.certresolver=myresolver"
+        #   - "traefik.http.services.test-bkt.loadbalancer.server.port=4000"
 
     craftcms:
         container_name: craftcms
